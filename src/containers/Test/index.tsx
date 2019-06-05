@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import { browserHistory,History,hashHistory } from 'react-router';
 import { connect } from 'react-redux'
 import './style.css';
 
-class Test extends Component{
-    constructor(props){
+interface Props {}
+
+class Test extends Component<Props>{
+    constructor(props:any){
         super(props);
         this.state = {
         }
@@ -15,7 +16,7 @@ class Test extends Component{
         console.log(this.state,this.props);
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps:any) {
         console.log('componentWillReceiveProps');
         console.log('nextProps:' , nextProps);
     }
@@ -32,7 +33,7 @@ class Test extends Component{
 }
 
 
-export default connect((state) => {
+export default connect((state:any) => {
     const { UserReducer } = state;
     return {
         UserReducer

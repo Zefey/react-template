@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import { browserHistory,History } from 'react-router';
 
-export default class NotFound extends Component{
+interface Props {}
+
+export default class NotFound extends Component<Props>{
     render(){
         return (
             <div>404</div>

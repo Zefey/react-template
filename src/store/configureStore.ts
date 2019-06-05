@@ -13,6 +13,6 @@ middlewares.push(logger);
 
 const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore);
 
-export default function configureStore(initialState){
+export default function configureStore(initialState:any){
     return createStoreWithMiddleware(reducers,initialState);
 }
