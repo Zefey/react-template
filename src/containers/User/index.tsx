@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
-import { browserHistory,History,hashHistory } from 'react-router';
 import { connect } from 'react-redux'
-import { Icon, Button } from 'antd';
+import { Button } from 'antd';
 import {userAction} from '../../actions/UserAction'
 import './style.css';
 
-class User extends Component{
-    constructor(props){
+interface Props {
+    userAction:any,
+    history:any
+}
+
+class User extends Component<Props>{
+    constructor(props:any){
         super(props);
         this.state = {
         }
@@ -18,7 +22,7 @@ class User extends Component{
         this.props.userAction();
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps:any) {
         console.log('componentWillReceiveProps');
         console.log('nextProps:' , nextProps);
     }
@@ -34,13 +38,14 @@ class User extends Component{
     }
 
     handleClick = () => {
-        hashHistory.push('/test');
+        console.log('handleClick');
+        this.props.history.push('test');
     }
 
 }
 
 
-export default connect((state) => {
+export default connect((state:any) => {
     const { UserReducer } = state;
     return {
         UserReducer

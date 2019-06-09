@@ -1,19 +1,26 @@
 import React, {Component} from 'react';
-import { Router,Route } from 'react-router-dom';
-import User from '../containers/User';
-import Test from '../containers/Test';
-import NotFound from '../containers/NotFound';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Loadable from 'react-loadable';
+import Loading from '../components/Loading';
+
+const User = Loadable({
+  loader: () => import('../containers/User'),
+  loading: Loading
+});
+
+const Test = Loadable({
+  loader: () => import('../containers/Test'),
+  loading: Loading
+});
+
 
 export default class Container extends Component{
-  constructor(props:any){
-    super(props);
-  }
+  
   render(){
     return(
     <Router>
-      <Route path="/" component={User}/>
-      <Route path="/test" component={Test}/>
-      <Route path="*" component={NotFound}/>
+      <Route path="/" exact={true} component={User}/>
+      <Route path="/test" exact={true} component={Test}/>
     </Router>
     )
   }
