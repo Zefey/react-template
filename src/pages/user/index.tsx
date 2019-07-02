@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux'
 import { Button } from 'antd';
 import {userAction} from '../../actions/UserAction'
-import './style.css';
+import './style.scss';
 
 interface Props {
     userAction:any,
