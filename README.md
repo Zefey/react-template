@@ -1,2 +1,2 @@
 # react-template
-react、 react-navigation、redux、antd 项目模版
+react、 react-router、redux、 antd 项目模版
