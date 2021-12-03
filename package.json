@@ -33,6 +33,15 @@
     "redux-thunk": "^2.3.0",
     "typescript": "3.5.1"
   },
+  "devDependencies": {
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^7.1.2",
+    "husky": "^4.3.8",
+    "lint-staged": "^7.2.2",
+    "stylelint": "^14.1.0",
+    "stylelint-config-standard": "^24.0.0",
+    "stylelint-prettier": "^1.2.0"
+  },
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
@@ -53,5 +62,28 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-standard",
+      "stylelint-prettier/recommended"
+    ],
+    "ignoreFiles": [
+      "**/*.md",
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.js"
+    ]
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --single-quote --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
